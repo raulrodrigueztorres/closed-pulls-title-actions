@@ -5,5 +5,4 @@ outputs:
     description: 'Titles of all PRs of the new release'
 runs:
   using: 'node12'
-  pre: npm install
   main: 'index.js'
