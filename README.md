@@ -1,1 +1,1 @@
-# closed-pulls-title-actions
+# release-pulls-titles
