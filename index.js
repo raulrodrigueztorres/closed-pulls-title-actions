@@ -20,8 +20,9 @@ try {
         owner: splitRepositoryArray[0],
         repo: splitRepositoryArray[1],
     }).then(releases => {
-        console.log(releases);
-        return releases.data[0].created_at;
+        if(releases.data !== [])
+            return releases.data[0].created_at;
+        else return undefined;
     });
 
     promises.push(getPulls, getLastRelease);
