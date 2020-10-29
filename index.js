@@ -20,16 +20,19 @@ try {
         owner: splitRepositoryArray[0],
         repo: splitRepositoryArray[1],
     }).then(releases => {
-        return releases.data[0].created_at;
+        if(releases.data.length >= 1)
+            return releases.data[0].created_at;
+        else return undefined;
     });
 
     promises.push(getPulls, getLastRelease);
 
     Promise.all(promises).then(results => {
         results[0].forEach(pull => {
-            console.log(results[1]);
-            if(pull.closed_at > results[1]) {
+            if(results[1] !== undefined && pull.closed_at > results[1]) {
                 titles += `${pull.title}\n`
+            } else if(results[1] === undefined) {
+                titles += `${pull.title}\n`;
             }
         });
         core.setOutput('titles', titles);
