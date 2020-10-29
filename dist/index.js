@@ -27,9 +27,8 @@ try {
         owner: splitRepositoryArray[0],
         repo: splitRepositoryArray[1],
     }).then(releases => {
-        if(releases.data !== undefined)
-            return releases.data[0].created_at;
-        else return undefined;
+        console.log(releases);
+        return releases.data[0].created_at;
     });
 
     promises.push(getPulls, getLastRelease);
