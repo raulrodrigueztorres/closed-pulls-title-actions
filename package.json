@@ -1,0 +1,24 @@
+{
+  "name": "closed-pulls-title-actions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raulrodrigueztorres/closed-pulls-title-actions.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raulrodrigueztorres/closed-pulls-title-actions/issues"
+  },
+  "homepage": "https://github.com/raulrodrigueztorres/closed-pulls-title-actions#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@octokit/rest": "^18.0.6"
+  }
+}
