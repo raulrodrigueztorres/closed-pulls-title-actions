@@ -26,7 +26,7 @@ try {
     Promise.all(promises).then(results => {
         results[0].forEach(pull => {
             if(pull.closed_at > results[1]) {
-                titles += `${pull.title}\n`
+                titles += `* ${pull.title} ([#${pull.number}]('https://github.com/raulrodrigueztorres/release_workflow/pull/${pull.number}') )\n`
             }
         });
         core.setOutput('titles', titles);
