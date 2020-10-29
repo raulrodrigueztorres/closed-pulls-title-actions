@@ -1,8 +1,12 @@
 name: 'Release Pulls Titles'
-description: 'Action to obtain the title of the PRs belonging to a new release'
+description: 'Action to obtain the title of the PRs belonging to a new release.'
 outputs:
   titles:
-    description: 'Titles of all PRs of the new release'
+    description: 'Titles of all PRs of the new release.'
+inputs: 
+    repository: 
+        description: 'The owner and repository name.'
+        required: true
 runs:
   using: 'node12'
   main: 'dist/index.js'

@@ -9,21 +9,23 @@ const core = __webpack_require__(97);
 const { Octokit } = __webpack_require__(152);
 
 try {
-    const octokit = new Octokit();
-    const promises = [];
     let titles = "";
+    const promises = [];
+    const octokit = new Octokit();
+
+    const splitRepositoryArray = core.getInput('repository').split('/');
 
     const getPulls = octokit.pulls.list({
-        owner: 'raulrodrigueztorres',
-        repo: 'release_workflow',
+        owner: splitRepositoryArray[0],
+        repo: splitRepositoryArray[1],
         state: 'closed'
     }).then(closedPulls => {
         return closedPulls.data;
     });
 
     const getLastRelease = octokit.repos.listReleases({
-        owner: 'raulrodrigueztorres',
-        repo: 'release_workflow'
+        owner: splitRepositoryArray[0],
+        repo: splitRepositoryArray[1],
     }).then(releases => {
         return releases.data[0].created_at;
     });
