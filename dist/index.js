@@ -14,7 +14,6 @@ try {
     const octokit = new Octokit();
 
     const splitRepositoryArray = core.getInput('repository').split('/');
-    console.log(splitRepositoryArray);
 
     const getPulls = octokit.pulls.list({
         owner: splitRepositoryArray[0],
