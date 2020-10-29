@@ -27,6 +27,7 @@ try {
 
     Promise.all(promises).then(results => {
         results[0].forEach(pull => {
+            console.log(results[1]);
             if(pull.closed_at > results[1]) {
                 titles += `${pull.title}\n`
             }
